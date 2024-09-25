@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PreInterview</title>
+    <link rel="stylesheet" href="interview.css" />
+  </head>
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+
+      // Your API Key
+
+      // Usage example
+      let apiKey = storeAndRetrieveAPIKey();
+
+      // Creating an async function to handle the API request
+      const feedBack = document.querySelector("#feedback");
+      async function generateContent(userArray) {
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+        let prompt = userArray;
+
+        try {
+          const result = await model.generateContent(prompt);
+          feedBack.innerHTML = await result.response.text();
+        } catch (error) {
+          feedBack.innerHTML = `Error generating content:, ${error}`;
+          localStorage.setItem("apiKey", "API_KEY_INVALID");
+        }
+      }
+      const submit = document.querySelector("#submit");
+      submit.addEventListener("click", () => {
+        generateContent(userout());
+        feedBack.innerHTML = "Loading.....";
+      });
+    </script>
+    <main>
+      <div class="logo">
+        <span class="pre">Pre</span><span class="interview">Interview</span>
+      </div>
+      <div id="test"></div>
+      <label for="content">Input Data</label>
+      <input title="text" type="text" id="content" />
+      <div id="button-div">
+        <button type="button" id="mic">mic</button>
+        <button type="button" id="submit">Submit</button>
+        <button type="button" id="previous">Previous</button>
+        <button type="button" id="next">Next</button>
+        <button type="button" id="jump">Jump To Custom Index</button>
+      </div>
+      <div id="feedback"></div>
+      <div id="output"></div>
+    </main>
+    <aside>
+      <section id="fixed">
+        <div id="status">Internet Status</div>
+      </section>
+    </aside>
+    <script src="test.js"></script>
+    <script src="await.js"></script>
+    <script src="online.js"></script>
+  </body>
+</html>
