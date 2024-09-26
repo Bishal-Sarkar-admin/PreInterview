@@ -107,7 +107,30 @@ aside {
     0 30px 60px rgba(0, 0, 0, 0.15);
   padding: 8px;
   position: absolute;
-  top: 20px;
+  top: 16px;
   right: 10px;
-  border-radius: 2px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background-color: aliceblue;
+}
+@media only screen and (max-width: 600px) {
+  #fixed {
+    font-size: 10px;
+    padding: 4px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  button,
+  input[type="submit"] {
+    font-size: 10px;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+  }
 }

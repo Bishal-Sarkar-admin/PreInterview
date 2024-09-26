@@ -25,8 +25,6 @@ function speak(text) {
     console.error("SpeechSynthesis API is not supported in this browser.");
   }
 }
-
-speak("Wellcome student, In our interview preparation platform.");
 // Function to get data from localStorage
 function getDataFromLocalStorage(key) {
   const itemStr = localStorage.getItem(key);
