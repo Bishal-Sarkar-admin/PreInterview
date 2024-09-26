@@ -73,6 +73,9 @@ if (
 ) {
   output = education("software_deplopment", person);
 } else if (person == "html" || person == "css" || person == "javascript") {
+  if (person == "javascript") {
+    person = "javajavascript";
+  }
   output = education("web_deplopment_frontend", person);
 } else if (
   person == "mongodb" ||
@@ -96,7 +99,7 @@ if (
 } else {
   alert(
     `Only this topics are available:
-c, c++, java, python, sql, aws, react, node.js, express, mongodb, dsa, computernetwork, dbms, os, se, hr, tricky
+c, c++, java, python, sql, aws, html, css, javascript, react, node.js, express, mongodb, dsa, computernetwork, dbms, os, se, hr, tricky
 `
   );
 }
