@@ -28,6 +28,23 @@ body {
   background-color: #f4f4f9;
   padding: 20px;
 }
+a {
+  text-decoration: none;
+  color: #695555; /* Text color */
+  background-color: #f4f4f9; /* Button background color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+a:hover {
+  background-color: #59596d; /* Background color on hover */
+  color: #e0e0e0; /* Text color on hover */
+}
 
 #test {
   text-align: center;
@@ -93,6 +110,10 @@ button:hover {
   border-radius: 5px;
   font-size: 16px;
   color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 /* aside tag */
@@ -132,5 +153,11 @@ aside {
 
   .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+  }
+  .output {
+    flex-direction: column;
+  }
+  a {
+    font-size: small;
   }
 }
