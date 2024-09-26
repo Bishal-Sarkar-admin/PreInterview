@@ -1,12 +1,31 @@
-// Speak function to read the text aloud
 function speak(text) {
-  let text_speak = new SpeechSynthesisUtterance(text);
-  text_speak.rate = 1;
-  text_speak.pitch = 1;
-  text_speak.volume = 1;
-  text_speak.lang = "en-GB";
-  window.speechSynthesis.speak(text_speak);
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel(); // Clears the queue
+    let text_speak = new SpeechSynthesisUtterance(text);
+
+    text_speak.rate = 1;
+    text_speak.pitch = 1;
+    text_speak.volume = 1;
+    text_speak.lang = "en-GB";
+
+    text_speak.onstart = () => {
+      console.log("Speech started");
+    };
+
+    text_speak.onend = () => {
+      console.log("Speech finished");
+    };
+
+    text_speak.onerror = (e) => {
+      console.error("Speech synthesis error:", e);
+    };
+
+    window.speechSynthesis.speak(text_speak);
+  } else {
+    console.error("SpeechSynthesis API is not supported in this browser.");
+  }
 }
+
 speak("Wellcome student, In our interview preparation platform.");
 // Function to get data from localStorage
 function getDataFromLocalStorage(key) {
