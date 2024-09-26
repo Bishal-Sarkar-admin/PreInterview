@@ -2,6 +2,7 @@
 function updateOnlineStatus() {
   const statusText = navigator.onLine ? "Online" : "Offline";
   document.getElementById("status").textContent = `${statusText}`;
+  return statusText;
 }
 
 // Check connection on page load

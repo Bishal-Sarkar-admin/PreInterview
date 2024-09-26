@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PreInterview</title>
     <link rel="stylesheet" href="interview.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="footer.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <script type="importmap">
@@ -35,7 +42,12 @@
           feedBack.innerHTML = await result.response.text();
         } catch (error) {
           feedBack.innerHTML = `Error generating content:, ${error}`;
-          localStorage.setItem("apiKey", "API_KEY_INVALID");
+          if (
+            error.includes("API_KEY_INVALID") ||
+            error.includes("[400 ] API key not valid")
+          ) {
+            localStorage.setItem("apiKey", "API_KEY_INVALID");
+          }
         }
       }
       const submit = document.querySelector("#submit");
@@ -52,20 +64,32 @@
       <label for="content">Input Data</label>
       <input title="text" type="text" id="content" />
       <div id="button-div">
-        <button type="button" id="mic">mic</button>
-        <button type="button" id="submit">Submit</button>
-        <button type="button" id="previous">Previous</button>
-        <button type="button" id="next">Next</button>
-        <button type="button" id="jump">Jump To Custom Index</button>
+        <button type="button" id="mic">
+          <span class="material-symbols-outlined"> mic </span>
+        </button>
+        <button onclick="successORerror()" type="button" id="submit">
+          <span class="material-symbols-outlined"> check </span>
+        </button>
+        <button type="button" id="previous">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <button type="button" id="next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+        <button type="button" id="jump">
+          <span class="material-symbols-outlined"> jump_to_element </span>
+        </button>
       </div>
       <div id="feedback"></div>
-      <div id="output"></div>
+      <div class="output">Contact With The Developer</div>
     </main>
     <aside>
       <section id="fixed">
         <div id="status">Internet Status</div>
       </section>
     </aside>
+
+    <script src="sweetalert.js"></script>
     <script src="test.js"></script>
     <script src="await.js"></script>
     <script src="online.js"></script>

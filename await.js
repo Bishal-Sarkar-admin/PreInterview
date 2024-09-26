@@ -48,12 +48,12 @@ async function fetchAndStoreData(link, filename) {
 
   if (storedData) {
     // If data is still valid, use it
-    // console.log("Using cached data:", storedData);
+    console.log("Using cached data:", filename);
   } else {
     // If data is expired or doesn't exist, fetch new data
     const data = await loadJSON(link);
     if (data) {
-      // console.log("Fetched new data:", data);
+      console.log("Fetched new data:", filename);
       saveDataToLocalStorage(key, data);
     }
   }

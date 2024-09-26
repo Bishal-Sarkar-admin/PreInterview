@@ -43,7 +43,8 @@ label {
   margin-bottom: 10px;
 }
 
-input[type="text"] {
+input[type="text"],
+textarea {
   width: 100%;
   padding: 10px;
   font-size: 14px;
@@ -52,7 +53,6 @@ input[type="text"] {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
-
 #button-div {
   display: flex;
   gap: 10px;
@@ -60,7 +60,8 @@ input[type="text"] {
   margin-bottom: 20px;
 }
 
-button {
+button,
+input[type="submit"] {
   padding: 10px 20px;
   font-size: 14px;
   background-color: #4caf50;
@@ -84,7 +85,9 @@ button:hover {
   margin-bottom: 20px;
 }
 
-#output {
+.output {
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #e9e9e9;
   padding: 15px;
   border-radius: 5px;
@@ -106,4 +109,5 @@ aside {
   position: absolute;
   top: 20px;
   right: 10px;
+  border-radius: 2px;
 }

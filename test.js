@@ -8,7 +8,6 @@ function speak(text) {
   window.speechSynthesis.speak(text_speak);
 }
 speak("Wellcome student, In our interview preparation platform.");
-
 // Function to get data from localStorage
 function getDataFromLocalStorage(key) {
   const itemStr = localStorage.getItem(key);
