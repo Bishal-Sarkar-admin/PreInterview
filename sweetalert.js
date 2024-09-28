@@ -1,20 +1,27 @@
 function success() {
   Swal.fire({
-    title: "Success!",
-    text: "You Successfully Submit Your Answer, Wait for AI Response.",
+    title: "Send", // Changed the title to "Sent"
+    text: "Answer submitted, awaiting AI response.",
     icon: "success",
-    confirmButtonText: "OK",
+    timer: 1500,
+    showConfirmButton: false,
+    position: "top-end",
+    toast: true,
   });
 }
 
 function error() {
   Swal.fire({
     title: "Error!",
-    text: "You’re offline. Check your connection",
+    text: "You're offline. Check your connection.",
     icon: "error",
-    confirmButtonText: "OK",
+    timer: 1500,
+    showConfirmButton: false,
+    position: "top-end",
+    toast: true,
   });
 }
+
 function successORerror() {
   if (updateOnlineStatus() == "Offline") {
     error();

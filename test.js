@@ -65,6 +65,12 @@ function education(domain, topic) {
 // Call the function for domain "mern" and topic "node.js"
 let output = "";
 let person = prompt("Please enter one topic");
+function formatText(input) {
+  // Remove all extra spaces and convert to lowercase
+  let formattedText = input.replace(/\s+/g, "").toLowerCase();
+  return formattedText;
+}
+person = formatText(person);
 if (
   person == "java" ||
   person == "c" ||
@@ -98,8 +104,7 @@ if (
   output = education("hr_tricky", person);
 } else {
   alert(
-    `Only this topics are available:
-c, c++, java, python, sql, aws, html, css, javascript, react, node.js, express, mongodb, dsa, computernetwork, dbms, os, se, hr, tricky
+    `Available Topics: C, C++, Java, Python, SQL, AWS, HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, DSA, Computer Networks, DBMS, OS, SE, HR, Tricky Questions.
 `
   );
 }
@@ -149,9 +154,10 @@ let submit = document.querySelector("#submit");
 
 function userout() {
   let userdata = [];
+
   userdata[0] = `question: ${output[currentIndex]}`;
   userdata[1] = `my answer: ${input.value}`; // Get the input value
-  userdata[2] = `feedback: give me feedback about my answer's correctness and completeness in percentage. Give me response in html format`;
+  userdata[2] = `Please provide feedback on my answer's correctness and completeness as percentages. For example: "Your answer's correctness is 95%. Your answer's completeness is 85%. Your overall Score Performance is (95%) * (85%) = 80.75%." Format the feedback in HTML with appropriate styling, and include a brief summary of the answer's strengths and areas for improvement.`;
   input.value = "";
   return userdata; // Return the user data array
 }
