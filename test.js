@@ -43,15 +43,17 @@ function getDataFromLocalStorage(key) {
 }
 
 // Function to dynamically display topic data for a given domain
-function education(domain, topic) {
+function education(domain, topic, reserveUserText) {
   const newdata = getDataFromLocalStorage(domain);
   if (newdata && Array.isArray(newdata)) {
     let outputHTML = []; // Initialize an empty array for the content
 
     // Loop through the array and append each entry's topic data to the output string
     newdata.forEach((entry, index) => {
-      if (entry[topic]) {
-        outputHTML[index] = `<p> ${index + 1}: ${entry[topic]}</p>`;
+      if (entry[topic] && index === 0) {
+        outputHTML[index] = `<p>${reserveUserText.toUpperCase()}</p>`;
+      } else if (entry[topic]) {
+        outputHTML[index] = `<p> ${index}: ${entry[topic]}</p>`;
       }
     });
     return outputHTML;
@@ -65,6 +67,7 @@ function education(domain, topic) {
 // Call the function for domain "mern" and topic "node.js"
 let output = "";
 let person = prompt("Please enter one topic");
+let reserveUserText = person;
 function formatText(input) {
   // Remove all extra spaces and convert to lowercase
   let formattedText = input.replace(/\s+/g, "").toLowerCase();
@@ -77,21 +80,21 @@ if (
   person == "c++" ||
   person == "python"
 ) {
-  output = education("software_deplopment", person);
+  output = education("software_deplopment", person, reserveUserText);
 } else if (person == "html" || person == "css" || person == "javascript") {
   if (person == "javascript") {
     person = "javajavascript";
   }
-  output = education("web_deplopment_frontend", person);
+  output = education("web_deplopment_frontend", person, reserveUserText);
 } else if (
   person == "mongodb" ||
   person == "express" ||
   person == "react" ||
   person == "node.js"
 ) {
-  output = education("mern", person);
+  output = education("mern", person, reserveUserText);
 } else if (person == "sql" || person == "aws") {
-  output = education("sql_aws", person);
+  output = education("sql_aws", person, reserveUserText);
 } else if (
   person == "dsa" ||
   person == "computernetwork" ||
@@ -99,9 +102,9 @@ if (
   person == "os" ||
   person == "se"
 ) {
-  output = education("subject", person);
+  output = education("subject", person, reserveUserText);
 } else if (person == "hr" || person == "tricky") {
-  output = education("hr_tricky", person);
+  output = education("hr_tricky", person, reserveUserText);
 } else {
   alert(
     `Available Topics: C, C++, Java, Python, SQL, AWS, HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, DSA, Computer Networks, DBMS, OS, SE, HR, Tricky Questions.
@@ -125,16 +128,15 @@ document.getElementById("previous").addEventListener("click", () => {
     speak(outputText);
     testDiv.innerHTML = output[currentIndex];
   }
+  document.querySelector("#feedback").innerHTML = "";
 });
 //Jump To Custom Index
 const Jump = document.getElementById("jump");
 Jump.addEventListener("click", () => {
   currentIndex = prompt("Enter the custom index that you want to jump");
-  let outputText = output[currentIndex - 1]
-    .replace("<p>", "")
-    .replace("</p>", "");
+  let outputText = output[currentIndex].replace("<p>", "").replace("</p>", "");
   speak(outputText);
-  testDiv.innerHTML = output[currentIndex - 1];
+  testDiv.innerHTML = output[currentIndex];
 });
 
 document.getElementById("next").addEventListener("click", () => {
@@ -146,6 +148,7 @@ document.getElementById("next").addEventListener("click", () => {
     speak(outputText);
     testDiv.innerHTML = output[currentIndex];
   }
+  document.querySelector("#feedback").innerHTML = "";
 });
 
 //Get user input by clicking submit button
