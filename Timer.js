@@ -1,5 +1,5 @@
 // Define the total time for the countdown (2 minutes in seconds)
-const totalTime = 2 * 60; // 2 minutes in seconds (120 seconds)
+const totalTime = 4 * 60; // 4 minutes in seconds (240 seconds)
 let timeElapsed = 0; // Counter to track time elapsed
 
 // Select the timer display element
