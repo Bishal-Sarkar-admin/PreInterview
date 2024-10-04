@@ -118,6 +118,7 @@ const testDiv = document.getElementById("test");
 //currentIndex
 let currentIndex = 0;
 testDiv.innerHTML = output[currentIndex];
+
 // // Event listeners for the buttons
 document.getElementById("previous").addEventListener("click", () => {
   if (currentIndex > 0) {
@@ -129,6 +130,7 @@ document.getElementById("previous").addEventListener("click", () => {
     testDiv.innerHTML = output[currentIndex];
   }
   document.querySelector("#feedback").innerHTML = "";
+  startTimer("end");
 });
 //Jump To Custom Index
 const Jump = document.getElementById("jump");
@@ -137,8 +139,35 @@ Jump.addEventListener("click", () => {
   let outputText = output[currentIndex].replace("<p>", "").replace("</p>", "");
   speak(outputText);
   testDiv.innerHTML = output[currentIndex];
+  startTimer("end");
 });
 
+//When Timer complete, Next Question appear
+// Function to update content after 2 minutes
+function autonext() {
+  // Update currentIndex
+  currentIndex >= output.length - 1 ? (currentIndex = 0) : currentIndex++;
+
+  // Extract and modify the output text
+  let outputText = output[currentIndex].replace("<p>", "").replace("</p>", "");
+
+  // Call the speak function (assuming it's defined elsewhere)
+  speak(outputText);
+
+  // Log the output text for debugging
+  console.log(outputText);
+
+  // Update the innerHTML of testDiv
+  testDiv.innerHTML = output[currentIndex];
+  document.querySelector("#feedback").innerHTML = "";
+}
+
+//updatedetect()
+function updatedetect() {
+  startTimer("end");
+  document.getElementById("timer").style.display = "flex";
+  startTimer();
+}
 document.getElementById("next").addEventListener("click", () => {
   if (currentIndex < output.length - 1) {
     currentIndex++;
@@ -149,6 +178,7 @@ document.getElementById("next").addEventListener("click", () => {
     testDiv.innerHTML = output[currentIndex];
   }
   document.querySelector("#feedback").innerHTML = "";
+  startTimer("end");
 });
 
 //Get user input by clicking submit button
@@ -183,6 +213,7 @@ recognition.maxAlternatives = 1; // Only 1 alternative is provided
 btn.addEventListener("click", () => {
   recognition.start(); // Start recognition when the button is clicked
   console.log("Voice recognition started. Speak into the mic...");
+  startTimer("end");
 });
 
 // Event triggered when recognition has a result

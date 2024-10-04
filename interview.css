@@ -161,3 +161,82 @@ aside {
     font-size: small;
   }
 }
+/* timer*/
+#timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-small;
+  color: #bbbbc0;
+}
+
+/* Dark Mode Colors */
+body.dark-mode {
+  background-color: #1a3636; /* Dark Teal */
+  color: #d6bd98; /* Light Beige for primary text */
+}
+
+body.dark-mode .logo .pre {
+  color: #d6bd98; /* Light Beige */
+}
+
+body.dark-mode .logo .interview {
+  color: #677d6a; /* Dusty Green */
+}
+
+body.dark-mode a {
+  color: #faefdd; /* Light Beige */
+  background-color: #40534c; /* Muted Green for backgrounds */
+}
+
+body.dark-mode a:hover {
+  background-color: #677d6a; /* Dusty Green for hover */
+  color: #5a3946; /* Light Beige */
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode textarea {
+  background-color: #40534c; /* Muted Green for inputs */
+  border-color: #d6bd98; /* Light Beige border */
+  color: #eeece9; /* Light Beige text */
+}
+
+body.dark-mode button {
+  background-color: #677d6a; /* Dusty Green */
+  color: #faefdd; /* Light Beige */
+}
+
+body.dark-mode button:hover {
+  background-color: #d6bd98; /* Light Beige for hover */
+  color: #1a3636; /* Dark Teal text for contrast */
+}
+
+body.dark-mode #feedback {
+  background-color: #1f2925; /* Muted Green */
+  color: #fffdfa; /* Light Beige text */
+  border: 1px solid #756f4b;
+}
+
+body.dark-mode .output {
+  background-color: #16241f; /* Muted Green */
+  color: #e9cccc; /* Light Beige text */
+}
+
+body.dark-mode #fixed {
+  background-color: #40534c; /* Muted Green */
+  color: #f1d1a1; /* Light Beige text */
+}
+
+body.dark-mode #timer {
+  color: #756f4b; /* Light Beige for timer */
+}
+body.dark-mode #test {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ffeeee;
+}
+
+body.dark-mode label {
+  color: #636386;
+}
