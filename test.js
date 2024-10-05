@@ -139,7 +139,7 @@ Jump.addEventListener("click", () => {
   let outputText = output[currentIndex].replace("<p>", "").replace("</p>", "");
   speak(outputText);
   testDiv.innerHTML = output[currentIndex];
-  startTimer("end");
+  updatedetect();
 });
 
 //When Timer complete, Next Question appear
@@ -160,13 +160,7 @@ function autonext() {
   // Update the innerHTML of testDiv
   testDiv.innerHTML = output[currentIndex];
   document.querySelector("#feedback").innerHTML = "";
-}
-
-//updatedetect()
-function updatedetect() {
-  startTimer("end");
-  document.getElementById("timer").style.display = "flex";
-  startTimer();
+  updatedetect();
 }
 document.getElementById("next").addEventListener("click", () => {
   if (currentIndex < output.length - 1) {
@@ -178,7 +172,7 @@ document.getElementById("next").addEventListener("click", () => {
     testDiv.innerHTML = output[currentIndex];
   }
   document.querySelector("#feedback").innerHTML = "";
-  startTimer("end");
+  updatedetect();
 });
 
 //Get user input by clicking submit button
