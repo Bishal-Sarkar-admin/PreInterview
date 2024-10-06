@@ -15,8 +15,8 @@ function chartToggle() {
   // Manually add the 'show' class
   footer.classList.add("show");
   drawChart(yourScore);
-  // Manually remove the 'show' class after 20s for testing
+  // Manually remove the 'show' class after 8s for testing
   setTimeout(() => {
     footer.classList.remove("show");
-  }, 20000);
+  }, 8000);
 }
