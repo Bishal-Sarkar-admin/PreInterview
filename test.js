@@ -184,7 +184,7 @@ function userout() {
 
   userdata[0] = `question: ${output[currentIndex]}`;
   userdata[1] = `my answer: ${input.value}`; // Get the input value
-  userdata[2] = `Please provide feedback on my answer's correctness and completeness as percentages. For example: "Your answer's correctness is 95%. Your answer's completeness is 85%. Your overall Score Performance is (95%) * (85%) = 80.75%." Format the feedback in HTML with appropriate styling, and include a brief summary of the answer's strengths and areas for improvement.`;
+  userdata[2] = `Please provide feedback on my answer's correctness and completeness as percentages. For example: "<h2>Feedback on Your Answer</h2> <h3>Correctness: 90%</h3> <h3>Completeness: 80%</h3> <h3>Your overall Score Performance is (90%) * (80%) = <span id="overall">72%</span></h3> <div >The Answer's Strengths: write your feedback</div> <div>Areas For Improvement: write your feedback</div>" Format the feedback in HTML with appropriate styling, and include a brief summary of the answer's strengths and areas for improvement. (id="overall" is most important).`;
   input.value = "";
   return userdata; // Return the user data array
 }

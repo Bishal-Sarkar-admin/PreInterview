@@ -100,6 +100,7 @@ button:hover {
   font-size: 14px;
   color: #333;
   margin-bottom: 20px;
+  line-height: 1.6; /* Adjust this value as needed */
 }
 
 .output {
@@ -239,4 +240,38 @@ body.dark-mode #test {
 
 body.dark-mode label {
   color: #636386;
+}
+/* Default light mode styles for code */
+code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  display: inline;
+  color: #d6336c;
+  font-size: 16px;
+  white-space: pre-wrap; /* Ensures line breaks in the code */
+  border-radius: 5px;
+}
+
+/* Dark mode styles for code */
+body.dark-mode code {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  border-color: #444;
+}
+#feedback div {
+  background-color: transparent !important;
+  color: #000000 !important;
+}
+body.dark-mode #feedback div {
+  background-color: #1f2925 !important; /* Dark background */
+  color: #fffdfa !important; /* Light Beige text */
+}
+
+.footer .hidden {
+  display: none;
+}
+
+.footer.show .hidden {
+  display: block;
 }
