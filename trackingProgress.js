@@ -12,11 +12,13 @@ function calculateOverallScore() {
 function chartToggle() {
   const footer = document.getElementById("footer");
 
-  // Manually add the 'show' class
-  footer.classList.add("show");
-  drawChart(yourScore);
-  // Manually remove the 'show' class after 8s for testing
-  setTimeout(() => {
+  // Check if 'show' class is present
+  if (footer.classList.contains("show")) {
+    // If 'show' is present, remove it
     footer.classList.remove("show");
-  }, 8000);
+  } else {
+    // If 'show' is not present, add it
+    footer.classList.add("show");
+    drawChart(yourScore);
+  }
 }
